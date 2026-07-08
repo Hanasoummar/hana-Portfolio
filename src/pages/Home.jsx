@@ -188,7 +188,7 @@ function Home() {
 
               <div className="cta-group">
                 <Link to="/projects" className="cta-primary">
-                  <span>[>_]</span> Explore My Work
+                  <span>[{'>'}_]</span> Explore My Work
                 </Link>
                 <Link to="/contact" className="cta-secondary">
                   <span>✉</span> Get in Touch

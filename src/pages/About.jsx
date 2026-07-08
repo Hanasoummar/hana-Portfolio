@@ -446,7 +446,7 @@ function About() {
             </p>
             <div className="about-cta-actions">
               <Link to="/contact" className="about-cta-btn about-cta-primary">
-                <span>[>_]</span> Start a conversation
+                <span>[{'>'}_]</span> Start a conversation
                 <span className="contact-action-arrow">→</span>
               </Link>
               
