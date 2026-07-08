@@ -1,0 +1,1287 @@
+/* ═══════════════════════════════════════════════════════
+   ABOUT PAGE — Complete Styles (Story + Journey merged)
+   ═══════════════════════════════════════════════════════ */
+
+.about-page {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 28px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+/* ─── Scroll Reveal ─── */
+.about-story,
+.about-journey-master,
+.about-cta {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about-story.revealed,
+.about-journey-master.revealed,
+.about-cta.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 1: HERO INTRO
+   ═══════════════════════════════════════════════════════ */
+
+.about-hero {
+  padding-top: 40px;
+}
+
+.about-hero-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.about-hero-row {
+  display: grid;
+  grid-template-columns: 0.5fr 0.78fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.about-hero-heading {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -3px;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.about-hero-accent {
+  background: linear-gradient(135deg, var(--pink) 0%, var(--role-blue) 50%, var(--blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.9em;
+  background: var(--pink);
+  margin-left: 4px;
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+}
+
+.about-hero-intro {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  font-weight: 400;
+  padding-top: 25px;
+  max-width: 750px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 2: IMAGE + MY STORY
+   ═══════════════════════════════════════════════════════ */
+
+.about-story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.about-story-image {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-self: start;
+  height: fit-content;
+}
+
+.about-story-image-frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid var(--border-blue);
+  box-shadow:
+    0 0 60px rgba(0, 75, 127, 0.1),
+    0 20px 60px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s ease;
+}
+
+.about-story-image-frame:hover {
+  border-color: var(--pink);
+  box-shadow:
+    0 0 60px rgba(242, 108, 167, 0.15),
+    0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.about-story-image-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 3/4;
+}
+
+.about-story-image-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 60%,
+    rgba(242, 108, 167, 0.08) 100%
+  );
+  pointer-events: none;
+}
+
+.about-story-image-caption {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.about-story-caption-prompt {
+  color: var(--pink);
+  font-weight: 600;
+}
+
+.about-story-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.about-story-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.about-story-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  font-weight: 400;
+}
+
+.about-story-text strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.about-story-pink {
+  color: var(--pink);
+  font-weight: 500;
+}
+
+.about-story-blue {
+  color: var(--role-blue);
+  font-weight: 500;
+}
+
+.about-story-impact {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  margin: 2rem 0;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border-blue);
+  border-bottom: 1px solid var(--border-blue);
+  letter-spacing: -0.5px;
+}
+
+.about-story-impact::before {
+  content: '❝';
+  display: block;
+  font-size: 2rem;
+  color: var(--pink);
+  opacity: 0.3;
+  margin-bottom: 0.5rem;
+}
+
+.about-story-quote {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.08rem;
+  font-style: italic;
+  color: var(--text-primary);
+  line-height: 1.7;
+  padding: 28px 24px 28px 36px;
+  margin: 0.8rem 0;
+  border-left: 3px solid var(--pink);
+  background: rgba(242, 108, 167, 0.04);
+  border-radius: 0 12px 12px 0;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.about-story-quote:hover {
+  border-left-color: var(--blue);
+  background: rgba(0, 75, 127, 0.06);
+  box-shadow: 0 0 30px rgba(242, 108, 167, 0.08);
+  transform: translateX(4px);
+}
+
+.about-story-quote::before {
+  content: '"';
+  position: absolute;
+  top: 6px;
+  left: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3.5rem;
+  color: var(--pink);
+  opacity: 0.15;
+  line-height: 1;
+}
+
+/* ─── Philosophy Cards ─── */
+.about-story-philosophy {
+  margin-top: 2rem;
+  background: var(--bg-panel);
+  border: 2px solid var(--border-blue);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 0 40px rgba(0, 75, 127, 0.06),
+    0 15px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255,255,255,0.02);
+  backdrop-filter: blur(20px);
+}
+
+.about-story-philosophy-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: rgba(10, 10, 12, 0.9);
+  border-bottom: 1.5px solid var(--border-blue);
+}
+
+.about-story-philosophy-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.about-story-philosophy-dot.dot-pink {
+  background: var(--pink);
+  box-shadow: 0 0 8px var(--pink);
+}
+
+.about-story-philosophy-dot.dot-blue {
+  background: var(--blue);
+  box-shadow: 0 0 8px var(--blue);
+  opacity: 0.7;
+}
+
+.about-story-philosophy-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: 0.5px;
+}
+
+.about-story-philosophy-body {
+  padding: 28px;
+}
+
+.about-story-philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.about-story-philosophy-card {
+  padding: 20px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border-blue);
+  background: rgba(0, 75, 127, 0.04);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.about-story-philosophy-card:hover {
+  border-color: var(--pink);
+  background: rgba(242, 108, 167, 0.06);
+  box-shadow: 0 0 20px var(--pink-glow);
+  transform: translateY(-4px);
+}
+
+.about-story.revealed .about-story-philosophy-card:nth-child(1) {
+  animation: cardBoot 0.5s ease forwards 0.1s;
+}
+
+.about-story.revealed .about-story-philosophy-card:nth-child(2) {
+  animation: cardBoot 0.5s ease forwards 0.25s;
+}
+
+.about-story.revealed .about-story-philosophy-card:nth-child(3) {
+  animation: cardBoot 0.5s ease forwards 0.4s;
+}
+
+@keyframes cardBoot {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-story-philosophy-cmd {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--border-blue);
+  opacity: 0.7;
+}
+
+.cmd-prompt {
+  color: var(--pink);
+  margin-right: 6px;
+}
+
+.cmd-text {
+  color: var(--role-blue);
+}
+
+.about-story-philosophy-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--pink);
+  font-weight: 600;
+  margin-bottom: 10px;
+  padding: 3px 8px;
+  border: 1.5px solid var(--border-pink);
+  border-radius: 5px;
+  background: rgba(242, 108, 167, 0.06);
+  width: fit-content;
+}
+
+.about-story-philosophy-card-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.about-story-philosophy-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.about-story-philosophy-desc em {
+  color: var(--text-primary);
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 3: MY JOURNEY — Master Section
+   ═══════════════════════════════════════════════════════ */
+
+.about-journey-master {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.about-journey-master-header {
+  margin-bottom: 0;
+}
+
+.about-journey-master-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.about-journey-master-heading {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  color: var(--text-primary);
+}
+
+.about-journey-master-accent {
+  background: linear-gradient(135deg, var(--pink) 0%, var(--role-blue) 60%, var(--blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Sticky Terminal Navigation ─── */
+/* ─── Journey Terminal with Dot Navigation ─── */
+.journey-terminal {
+  background: var(--bg-panel);
+  border: 2.5px solid var(--border-blue);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    0 0 60px rgba(0, 75, 127, 0.08),
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255,255,255,0.02);
+  backdrop-filter: blur(20px);
+}
+
+.journey-terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  background: rgba(10, 10, 12, 0.9);
+  border-bottom: 1.5px solid var(--border-blue);
+  flex-wrap: wrap;
+}
+
+/* ─── Dot Navigation inside Terminal Header ─── */
+.journey-terminal-dots {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.journey-terminal-dot-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.journey-terminal-dot-inner {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--border-blue);
+  background: transparent;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.journey-terminal-dot-btn:hover .journey-terminal-dot-inner {
+  border-color: var(--pink);
+  transform: scale(1.2);
+}
+
+.journey-terminal-dot-btn.active .journey-terminal-dot-inner {
+  border-color: var(--pink);
+  background: var(--pink);
+  box-shadow: 0 0 12px var(--pink);
+}
+
+/* Different colors for each dot */
+.journey-terminal-dots .journey-terminal-dot-btn:nth-child(2).active .journey-terminal-dot-inner {
+  border-color: var(--role-blue);
+  background: var(--role-blue);
+  box-shadow: 0 0 12px var(--role-blue);
+}
+
+.journey-terminal-dots .journey-terminal-dot-btn:nth-child(3).active .journey-terminal-dot-inner {
+  border-color: #a855f7;
+  background: #a855f7;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
+}
+
+.journey-terminal-dots .journey-terminal-dot-btn:nth-child(4).active .journey-terminal-dot-inner {
+  border-color: var(--blue);
+  background: var(--blue);
+  box-shadow: 0 0 12px var(--blue);
+}
+
+/* Dot labels */
+.journey-terminal-dot-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.journey-terminal-dot-btn.active .journey-terminal-dot-label {
+  color: var(--pink);
+}
+
+.journey-terminal-dots .journey-terminal-dot-btn:nth-child(2).active .journey-terminal-dot-label {
+  color: var(--role-blue);
+}
+
+.journey-terminal-dots .journey-terminal-dot-btn:nth-child(3).active .journey-terminal-dot-label {
+  color: #a855f7;
+}
+
+.journey-terminal-dots .journey-terminal-dot-btn:nth-child(4).active .journey-terminal-dot-label {
+  color: var(--blue);
+}
+
+/* Terminal title (command) */
+.journey-terminal-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-left: auto;
+  letter-spacing: 0.5px;
+}
+
+/* Terminal body */
+.journey-terminal-body {
+  padding: 36px 40px;
+  min-height: 400px;
+}
+
+/* Content transition */
+.journey-terminal-body > div {
+  animation: fadeInContent 0.4s ease;
+}
+
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Remove old sticky nav styles */
+.journey-nav {
+  display: none;
+}
+
+.journey-subsection {
+  scroll-margin-top: 0;
+}
+
+/* ═══════════════════════════════════════════════════════
+   EXPERIENCE
+   ═══════════════════════════════════════════════════════ */
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.experience-item {
+  padding: 28px 0;
+}
+
+.experience-item:first-child {
+  padding-top: 0;
+}
+
+.experience-item:last-child {
+  padding-bottom: 0;
+}
+
+.experience-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-blue), transparent);
+}
+
+.experience-meta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.experience-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--pink);
+  padding: 4px 10px;
+  border: 1px solid var(--border-pink);
+  border-radius: 6px;
+  background: rgba(242, 108, 167, 0.06);
+}
+
+.experience-location {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.experience-role {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.experience-place {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: var(--role-blue);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.experience-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.experience-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.experience-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border-blue);
+  background: rgba(0, 75, 127, 0.06);
+  transition: all 0.3s ease;
+}
+
+.experience-tag:hover {
+  border-color: var(--role-blue);
+  color: var(--role-blue);
+  background: rgba(0, 75, 127, 0.1);
+}
+
+/* ═══════════════════════════════════════════════════════
+   EDUCATION
+   ═══════════════════════════════════════════════════════ */
+
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.education-item {
+  padding: 24px 0;
+}
+
+.education-item:first-child {
+  padding-top: 0;
+}
+
+.education-item:last-child {
+  padding-bottom: 0;
+}
+
+.education-meta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.education-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--pink);
+  padding: 4px 10px;
+  border: 1px solid var(--border-pink);
+  border-radius: 6px;
+  background: rgba(242, 108, 167, 0.06);
+}
+
+.education-location {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.education-degree {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.education-school {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: var(--role-blue);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.education-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.education-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.education-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--role-blue);
+  padding: 3px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--border-blue);
+  background: rgba(0, 75, 127, 0.08);
+}
+
+/* ═══════════════════════════════════════════════════════
+   HACKATHONS
+   ═══════════════════════════════════════════════════════ */
+
+.hackathon-card {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.hackathon-image {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid var(--border-blue);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.hackathon-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 16/10;
+}
+
+.hackathon-image-overlay {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--pink), var(--blue));
+  color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(242, 108, 167, 0.4);
+}
+
+.hackathon-content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hackathon-meta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hackathon-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--pink);
+  padding: 4px 10px;
+  border: 1px solid var(--border-pink);
+  border-radius: 6px;
+  background: rgba(242, 108, 167, 0.06);
+}
+
+.hackathon-location {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.hackathon-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.hackathon-team {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.hackathon-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.hackathon-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border-blue);
+  background: rgba(0, 75, 127, 0.04);
+}
+
+.hackathon-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.highlight-icon {
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+.hackathon-reflection {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-style: italic;
+  padding: 12px 0;
+  border-top: 1px solid var(--border-blue);
+  border-bottom: 1px solid var(--border-blue);
+}
+
+.hackathon-thanks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hackathon-thanks-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--pink);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.hackathon-thanks-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.hackathon-thanks-text strong {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════════
+   CERTIFICATES
+   ═══════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════
+   CERTIFICATES — Mini Cards
+   ═══════════════════════════════════════════════════════ */
+
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.certificate-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  border: 1.5px solid var(--border-blue);
+  background: rgba(0, 75, 127, 0.04);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.certificate-card:hover {
+  border-color: var(--pink);
+  background: rgba(242, 108, 167, 0.05);
+  box-shadow: 0 0 20px var(--pink-glow);
+  transform: translateY(-3px);
+}
+
+.certificate-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.certificate-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--pink);
+  box-shadow: 0 0 6px var(--pink);
+  flex-shrink: 0;
+}
+
+.certificate-issuer {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--role-blue);
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.certificate-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-left: auto;
+  padding: 2px 8px;
+  border: 1px solid var(--border-blue);
+  border-radius: 4px;
+  background: rgba(0, 75, 127, 0.06);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.certificate-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin: 0;
+}
+/* ═══════════════════════════════════════════════════════
+   SECTION 4: CTA
+   ═══════════════════════════════════════════════════════ */
+
+.about-cta {
+  padding-bottom: 40px;
+}
+
+.about-cta-terminal {
+  background: var(--bg-panel);
+  border: 2.5px solid var(--border-blue);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    0 0 60px rgba(0, 75, 127, 0.08),
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255,255,255,0.02);
+  backdrop-filter: blur(20px);
+}
+
+.about-cta-terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 24px;
+  background: rgba(10, 10, 12, 0.9);
+  border-bottom: 1.5px solid var(--border-blue);
+}
+
+.about-cta-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.about-cta-dot.dot-pink {
+  background: var(--pink);
+  box-shadow: 0 0 8px var(--pink);
+}
+
+.about-cta-dot.dot-blue {
+  background: var(--blue);
+  box-shadow: 0 0 8px var(--blue);
+  opacity: 0.7;
+}
+
+.about-cta-terminal-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: 0.5px;
+}
+
+.about-cta-terminal-body {
+  padding: 48px;
+  text-align: center;
+}
+
+.about-cta-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.about-cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.about-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.about-cta-primary {
+  background: linear-gradient(135deg, var(--pink), var(--blue));
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 20px var(--pink-glow);
+}
+
+.about-cta-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px var(--pink-glow), 0 0 50px var(--blue-glow);
+}
+
+.about-cta-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1.5px solid var(--blue);
+}
+
+.about-cta-secondary:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+  background: rgba(242, 108, 167, 0.06);
+  box-shadow: 0 0 30px var(--pink-glow);
+  transform: translateY(-3px);
+}
+
+/* ═══════════════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════════════ */
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════ */
+
+@media (max-width: 860px) {
+  .about-page {
+    gap: 60px;
+    padding: 80px 20px 40px;
+  }
+
+  .about-hero-row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .about-hero-intro {
+    padding-top: 0;
+    max-width: 100%;
+  }
+
+  .about-story-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-story-image {
+    position: relative;
+    top: 0;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .about-story-title {
+    font-size: 1.7rem;
+  }
+
+  .about-story-text {
+    font-size: 0.98rem;
+  }
+
+  .about-story-impact {
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+    margin: 1.5rem 0;
+    padding: 1.5rem 0;
+  }
+
+  .about-story-quote {
+    font-size: 1rem;
+    padding: 20px 20px 20px 28px;
+  }
+
+  .about-story-quote::before {
+    font-size: 2.5rem;
+  }
+
+  .about-story-philosophy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-story-philosophy-body {
+    padding: 20px;
+  }
+
+  .journey-nav {
+    position: relative;
+    top: 0;
+    margin: 0 -20px;
+    max-width: calc(100% + 40px);
+  }
+
+  .journey-nav-body {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .journey-nav-body::-webkit-scrollbar {
+    display: none;
+  }
+
+  .journey-subsection {
+    scroll-margin-top: 20px;
+  }
+
+  .journey-terminal-body {
+    padding: 24px;
+  }
+
+  .hackathon-card {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .certificates-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-cta-terminal-body {
+    padding: 32px 20px;
+  }
+
+  .about-cta-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-page {
+    padding: 70px 14px 32px;
+    gap: 48px;
+  }
+
+  .about-hero-heading {
+    font-size: clamp(2.2rem, 10vw, 3.2rem);
+    letter-spacing: -2px;
+  }
+
+  .about-hero-intro {
+    font-size: 1rem;
+  }
+
+  .about-story-image {
+    max-width: 260px;
+  }
+
+  .about-story-title {
+    font-size: 1.5rem;
+  }
+
+  .about-journey-master-heading {
+    font-size: clamp(2.2rem, 8vw, 3rem);
+  }
+
+  .experience-role {
+    font-size: 1.15rem;
+  }
+
+  .hackathon-title {
+    font-size: 1.25rem;
+  }
+
+  .certificate-name {
+    font-size: 1rem;
+  }
+}

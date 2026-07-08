@@ -1,0 +1,612 @@
+/* ═══════════════════════════════════════════════════════
+   PROJECTS PAGE — Full Portfolio Grid
+   ═══════════════════════════════════════════════════════ */
+
+.projects-page {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 28px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════════════════ */
+
+.projects-hero {
+  padding-top: 20px;
+}
+
+.projects-hero-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.projects-hero-heading {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -3px;
+  color: var(--text-primary);
+  margin: 0 0 1.5rem 0;
+}
+
+.projects-hero-accent {
+  background: linear-gradient(135deg, var(--pink) 0%, var(--role-blue) 50%, var(--blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.projects-hero-intro {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 600px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   STATS BAR
+   ═══════════════════════════════════════════════════════ */
+
+.projects-stats-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 24px 32px;
+  background: var(--bg-panel);
+  border: 2px solid var(--border-blue);
+  border-radius: 16px;
+  box-shadow:
+    0 0 60px rgba(0, 75, 127, 0.08),
+    0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.projects-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.projects-stat-number {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--pink);
+  line-height: 1;
+}
+
+.projects-stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.projects-stat-divider {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(180deg, transparent, var(--border-blue), transparent);
+}
+
+/* ═══════════════════════════════════════════════════════
+   FILTER BAR
+   ═══════════════════════════════════════════════════════ */
+
+.projects-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.projects-filter-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.projects-filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border-blue);
+  background: rgba(0, 75, 127, 0.04);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--role-blue);
+  color: var(--role-blue);
+  background: rgba(0, 75, 127, 0.08);
+}
+
+.filter-btn-active {
+  border-color: var(--pink);
+  color: var(--pink);
+  background: rgba(242, 108, 167, 0.08);
+  box-shadow: 0 0 15px var(--pink-glow);
+}
+
+.filter-btn-active:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+}
+
+/* ═══════════════════════════════════════════════════════
+   PROJECTS GRID
+   ═══════════════════════════════════════════════════════ */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* ─── Project Card ─── */
+.project-card {
+  background: var(--bg-panel);
+  border: 2px solid var(--border-blue);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 0 40px rgba(0, 75, 127, 0.06),
+    0 15px 40px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.project-card-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-card:hover {
+  box-shadow:
+    0 0 50px rgba(0, 75, 127, 0.1),
+    0 20px 50px rgba(0, 0, 0, 0.5);
+  border-color: var(--border-pink);
+}
+
+/* Card Header */
+.project-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: rgba(10, 10, 12, 0.9);
+  border-bottom: 1.5px solid var(--border-blue);
+}
+
+.project-card-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.project-card-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.project-card-dot.dot-pink {
+  background: var(--pink);
+  box-shadow: 0 0 8px var(--pink);
+}
+
+.project-card-dot.dot-blue {
+  background: var(--blue);
+  box-shadow: 0 0 8px var(--blue);
+  opacity: 0.7;
+}
+
+.project-card-filename {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+.project-card-category {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--role-blue);
+  padding: 3px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--border-blue);
+  background: rgba(0, 75, 127, 0.08);
+}
+
+/* Card Body */
+.project-card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Image */
+.project-card-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: rgba(0, 75, 127, 0.05);
+}
+
+.project-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-card-image {
+  transform: scale(1.05);
+}
+
+.project-card-image-fallback {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.project-card-fallback-icon {
+  font-size: 2.5rem;
+  opacity: 0.5;
+}
+
+.project-card-fallback-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* Content */
+.project-card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.project-card-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--pink);
+  font-weight: 600;
+  padding: 3px 10px;
+  border: 1.5px solid var(--border-pink);
+  border-radius: 6px;
+  background: rgba(242, 108, 167, 0.06);
+}
+
+.project-card-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.project-card-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.project-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Tags */
+.project-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.project-card-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--role-blue);
+  padding: 3px 10px;
+  border-radius: 5px;
+  border: 1px solid var(--border-blue);
+  background: rgba(0, 75, 127, 0.06);
+}
+
+/* Stats */
+.project-card-stats {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-blue);
+}
+
+.project-card-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.project-stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.project-stat-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Links */
+.project-card-links {
+  display: flex;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.project-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1.5px solid var(--border-blue);
+}
+
+.project-card-link-github {
+  color: var(--text-secondary);
+  background: rgba(10, 10, 12, 0.5);
+}
+
+.project-card-link-github:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+  background: rgba(242, 108, 167, 0.08);
+  box-shadow: 0 0 20px var(--pink-glow);
+  transform: translateY(-2px);
+}
+
+.project-card-link-private {
+  color: var(--text-muted);
+  background: rgba(10, 10, 12, 0.3);
+  cursor: default;
+  opacity: 0.6;
+}
+
+.project-card-link-details {
+  color: var(--role-blue);
+  background: rgba(0, 75, 127, 0.06);
+  margin-left: auto;
+}
+
+.project-card-link-details:hover {
+  border-color: var(--role-blue);
+  background: rgba(0, 75, 127, 0.12);
+  transform: translateY(-2px);
+}
+
+.project-link-arrow {
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.project-card-link-details:hover .project-link-arrow {
+  transform: translateX(4px);
+}
+
+/* ═══════════════════════════════════════════════════════
+   GITHUB CTA
+   ═══════════════════════════════════════════════════════ */
+
+.projects-github-cta {
+  margin-top: 20px;
+}
+
+.github-terminal {
+  background: var(--bg-panel);
+  border: 2px solid var(--border-blue);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 0 60px rgba(0, 75, 127, 0.08),
+    0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.github-terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: rgba(10, 10, 12, 0.9);
+  border-bottom: 1.5px solid var(--border-blue);
+}
+
+.github-terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.github-terminal-dot.dot-pink {
+  background: var(--pink);
+  box-shadow: 0 0 8px var(--pink);
+}
+
+.github-terminal-dot.dot-blue {
+  background: var(--blue);
+  box-shadow: 0 0 8px var(--blue);
+  opacity: 0.7;
+}
+
+.github-terminal-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-left: auto;
+  letter-spacing: 0.5px;
+}
+
+.github-terminal-body {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.github-terminal-line {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.github-prompt {
+  color: var(--pink);
+  font-weight: 600;
+}
+
+.github-cmd {
+  color: var(--role-blue);
+}
+
+.github-string {
+  color: var(--text-primary);
+  font-style: italic;
+}
+
+.github-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--pink), var(--blue));
+  color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px var(--pink-glow);
+}
+
+.github-cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px var(--pink-glow), 0 0 50px var(--blue-glow);
+}
+
+.github-cta-arrow {
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.github-cta-btn:hover .github-cta-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-stats-bar {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .projects-stat-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-page {
+    padding: 80px 16px 40px;
+    gap: 32px;
+  }
+
+  .projects-hero-heading {
+    font-size: clamp(2.2rem, 10vw, 3.2rem);
+    letter-spacing: -2px;
+  }
+
+  .projects-filter-buttons {
+    gap: 6px;
+  }
+
+  .filter-btn {
+    padding: 6px 12px;
+    font-size: 0.7rem;
+  }
+
+  .project-card-content {
+    padding: 16px;
+  }
+
+  .project-card-stats {
+    gap: 12px;
+  }
+
+  .github-terminal-body {
+    padding: 24px 16px;
+  }
+}
