@@ -656,7 +656,7 @@ function Home() {
             </p>
             <div className="contact-actions">
               <Link to="/contact" className="contact-action-btn contact-action-primary">
-                <span className="contact-action-icon">[>_]</span>
+                <span className="contact-action-icon">[&gt;_]</span> 
                 <span className="contact-action-text">Start a conversation</span>
                 <span className="contact-action-arrow">→</span>
               </Link>

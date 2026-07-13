@@ -157,14 +157,18 @@ function Contact() {
     e.preventDefault()
     setFormStatus('sending')
 
-    const form = e.target
-
     try {
-      await fetch('/', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(form)).toString()
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to send')
+      }
 
       setFormStatus('sent')
       setFormData({ name: '', email: '', subject: '', message: '' })
@@ -172,13 +176,14 @@ function Contact() {
       setTerminalLines((prev) => [
         ...prev,
         { prompt: 'hana@portfolio:~$', text: ` echo "Message from ${formData.name}" > inbox/new.msg`, color: 'green' },
-        { prompt: '', text: '[SUCCESS] Message queued for delivery via Netlify.', color: 'green' },
+        { prompt: '', text: '[SUCCESS] Message delivered to inbox.', color: 'green' },
       ])
     } catch (err) {
+      console.error('Form error:', err)
       setFormStatus('error')
       setTerminalLines((prev) => [
         ...prev,
-        { prompt: '', text: '[ERROR] Form submission failed. Fallback to email.', color: 'pink' },
+        { prompt: '', text: '[ERROR] Server unreachable. Fallback to email client.', color: 'pink' },
       ])
       const mailto = `mailto:soummarhana@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`From: ${formData.name} <${formData.email}>\n\n${formData.message}`)}`
       window.location.href = mailto
@@ -218,7 +223,7 @@ function Contact() {
                 </div>
                 <div className="term-line term-line-visible term-md">
                   <span className="term-text">
-                    # Let\'s Connect<br />
+                    # Let's Connect<br />
                     Whether you have a project idea, a collaboration opportunity,<br />
                     or just want to talk AI — my inbox is always open.
                   </span>
@@ -237,7 +242,7 @@ function Contact() {
             {formStatus === 'sending' && (
               <div className="term-line term-line-visible">
                 <span className="term-prompt">$</span>
-                <span className="term-text tx-muted">Transmitting packet to Netlify...</span>
+                <span className="term-text tx-muted">Transmitting packet to server...</span>
                 <span className="term-spinner" />
               </div>
             )}
@@ -329,17 +334,8 @@ function Contact() {
 
             <form
               className="contact-form"
-              name="contact"
-              method="POST"
-              data-netlify="true"
-              netlify-honeypot="bot-field"
               onSubmit={handleSubmit}
             >
-              <input type="hidden" name="form-name" value="contact" />
-              <p className="hidden-field">
-                <label>Don\'t fill this out: <input name="bot-field" /></label>
-              </p>
-
               <div className="form-group">
                 <label className="form-label">
                   <span className="form-prompt">$</span> name=
@@ -378,7 +374,7 @@ function Contact() {
                   type="text"
                   name="subject"
                   className="form-input"
-                  placeholder="What\'s this about?"
+                  placeholder="What's this about?"
                   value={formData.subject}
                   onChange={handleChange}
                   required
@@ -469,7 +465,7 @@ function Contact() {
 
           <div className="avail-info">
             <p>📍Agadir, Morocco — also open to remote & relocation</p>
-            <p>🗣 English, French,Tamazight, Arabic</p>
+            <p>🗣 English, French, Tamazight, Arabic</p>
             <p>⏱ Usually responds within a few hours</p>
           </div>
         </div>
